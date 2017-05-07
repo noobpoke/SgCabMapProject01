@@ -1,0 +1,36 @@
+body {
+    font-size: 12px;
+}
+
+text {
+    fill: white;
+}
+
+svg {
+    position: relative;
+}
+
+path:hover {
+    fill: brown;
+    fill-opacity: .7;
+}
+
+rect.dimple-tooltip {
+    fill: #191A1A !important;
+}
+#map {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: #333;
+
+}
+
+#totalTaxiCountChart {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 1000;
+}
