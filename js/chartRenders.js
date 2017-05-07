@@ -42,14 +42,16 @@ $(function() {
     dimpChart01s.lineMarkers = true;
     dimpChart01.defaultColors[0] = new dimple.color("#00EEEE", "#6687F3");
     //dimpleChart01.afterDraw
-    var dimpleChart01titleAttr = {"x": 30, "y": 0,};
-    var dimpleChart01title02Attr = {"x": 30, "y": 30,};
-    var dimpleChart01titleStyle = {"font-size": 26, "fill":"white", "font-weight":"Bold",
+    var dimpleChart01titleAttr = {"x": "30px", "y": "20px",};
+    var dimpleChart01title02Attr = {"x": "30px", "y": "40px",};
+    var dimpleChart01titleStyle = {"font-size": "26px", "fill":"white", "font-weight":"bold",
                                     "font-family": "Helvetica Neue, Helvetica, Arial, sans-serif",
-                                    "alignment-baseline": "hanging",};
-    var dimpleChart01title02Style = {"font-size": 15, "fill":"white", "font-weight":"normal",
+                                    //"alignment-baseline": "hanging",
+                                    };
+    var dimpleChart01title02Style = {"font-size": "15px", "fill":"white", "font-weight":"normal",
                                     "font-family": "Helvetica Neue, Helvetica, Arial, sans-serif",
-                                    "alignment-baseline": "hanging",};
+                                    //"alignment-baseline": "hanging",
+                                    };
     renderTitle(taxiCountTitle_g,"Available Cabs Trend",dimpleChart01titleAttr,dimpleChart01titleStyle);
     renderTitle(taxiCountTitle_g,"in running "+sampleRateInMinutes+" minute intervals",dimpleChart01title02Attr,dimpleChart01title02Style);
     // ===== Initiate Requests Chunk =====
