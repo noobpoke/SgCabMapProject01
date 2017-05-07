@@ -2,6 +2,7 @@
 Inspired by a few online visualizations such as:
 
 [Sumbera's Data Blog](https://blog.sumbera.com/2014/06/08/leaflet-webgl-many-points-rendering/)
+
 [Ben Young Quan's Live Taxi Map](https://yongquanben.github.io/sg_taxi_availability/)
 
 this project is initiated to practice front-end/d3 coding on a map project 
