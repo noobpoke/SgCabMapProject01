@@ -78,7 +78,7 @@ $(function() {
 
         //Render Again
         requestLocationData(apiTime, renderMap);
-        requestLoopForMinuteData(taxiCountAxisPeriods);
+        requestLoopForMinuteData(sampleRateInMinutes, taxiCountAxisPeriods);
     }, sampleRateInMinutes * 60 * 1000); // 60 * 1000 milsec
 
 
