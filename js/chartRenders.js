@@ -1,11 +1,14 @@
+// Using dimple as placeholder charts for future builds.
+// Will rebuild them with raw d3 to have more control.
 $(function() {
 
+    
     // Simple Control Variables
     var apiKey = 'Ga5J1UGzW0PkSVdEv89fGnA0xS49DvXe';
     var taxiLocArray = [];
     var taxiCountArray = [];
-    var sampleRateInMinutes = 3;
-    var taxiCountAxisPeriods = 20;
+    var sampleRateInMinutes = 3; // x
+    var taxiCountAxisPeriods = 20; // y
     var momentTimeNow = moment(Date.now()).startOf('minutes');
     var apiTime = momentTimeNow.format('YYYY-MM-DDTHH:mm:ss');
 
@@ -58,10 +61,10 @@ $(function() {
 
     requestLocationData(apiTime, renderMap);
 
-    // Request 12 * 5minutes of Taxi Counts from current time and Plot Chart in the last Request
+    // Request y * x minutes of Taxi Counts from current time and Plot Chart in the last Request
     requestLoopForMinuteData(sampleRateInMinutes, taxiCountAxisPeriods);
 
-    // Get data every 5 minutes
+    // Get data every x minutes (x= sample rate)
     setInterval(function() {
         momentTimeNow = moment(Date.now()).startOf('minutes');
         apiTime = momentTimeNow.format('YYYY-MM-DDTHH:mm:ss');
@@ -106,11 +109,7 @@ $(function() {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("api-key", apiKey)
             },
-            //data: data,
-            //dataType: 'jsonp',
             success: function (data) {
-                //console.log("request count2 at "+requestTime);
-                //taxiCountArray.push({"Time":requestTime,"Count":data.features[0].properties.taxi_count});
                 taxiCountArray.push({"Time":d3timeToChartAxis(apiTimeToD3.parse(requestTime)),"Count":data.features[0].properties.taxi_count});
             }
         }).done(function () {
@@ -120,13 +119,11 @@ $(function() {
 
     function requestLoopForMinuteData(minGranularity,noOfLoops) {
         for (var i = 0; i < noOfLoops; i++) {
-            //console.log(i);
             var startTime = $.extend({}, momentTimeNow);
             var inputTime = startTime.subtract(minGranularity, "minutes").format('YYYY-MM-DDTHH:mm:ss');
 
             if (i == noOfLoops - 1) {
                 requestTaxiCountData(inputTime, renderDimpleChart);
-                //console.log(taxiCountArray);
             } else {
                 requestTaxiCountData(inputTime, function () {
                 });
@@ -213,7 +210,6 @@ $(function() {
             points.exit().remove();
             points
                 .attr("d", path)
-                //.style("fill-opacity", 0)
                 .style("fill-opacity", function (d){
                     if (d.group) {
                         return (d.group * 0.1) + 0.2;
@@ -222,7 +218,6 @@ $(function() {
                     }
                 })
                 .transition()
-                //.delay(750)
                 .duration(1800)
                 .style("fill", "#ffd800")
                 ;
