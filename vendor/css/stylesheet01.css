@@ -1,20 +1,16 @@
 body {
     font-size: 12px;
 }
-
 text {
     fill: white;
 }
-
 svg {
     position: relative;
 }
-
 path:hover {
     fill: brown;
-    fill-opacity: .7;
+    fill-opacity: .9;
 }
-
 rect.dimple-tooltip {
     fill: #191A1A !important;
 }
@@ -25,9 +21,7 @@ rect.dimple-tooltip {
     height: 100%;
     width: 100%;
     background-color: #333;
-
 }
-
 #totalTaxiCountChart {
     position: absolute;
     bottom: 20px;
